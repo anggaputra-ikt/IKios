@@ -1,0 +1,36 @@
+﻿@page
+@using Domain.Entities;
+@using Web.Pages.Penyewa;
+@model CreateModel
+@{
+    ViewData["Title"] = "Tambah Penyewa";
+}
+<h3>@ViewData["Title"]</h3>
+<form method="post">
+    <div class="mb-3">
+        <label asp-for="@Model.Penyewa.NIK" class="form-label"></label>
+        <input asp-for="@Model.Penyewa.NIK" type="text" class="form-control" />
+        <span asp-validation-for="@Model.Penyewa.NIK" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="@Model.Penyewa.NamaLengkap" class="form-label"></label>
+        <input asp-for="@Model.Penyewa.NamaLengkap" type="text" class="form-control" />
+        <span asp-validation-for="@Model.Penyewa.NamaLengkap" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="@Model.Penyewa.JenisKelamin" class="form-label"></label>
+        <select asp-for="@Model.Penyewa.JenisKelamin" asp-items="@Html.GetEnumSelectList<JenisKelamin>()" class="form-select">
+            <option value="">- Pilih Kelamin -</option>
+        </select>
+        <span asp-validation-for="@Model.Penyewa.JenisKelamin" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="@Model.Penyewa.Domisili" class="form-label"></label>
+        <input asp-for="@Model.Penyewa.Domisili" type="text" class="form-control" />
+        <span asp-validation-for="@Model.Penyewa.Domisili" class="text-danger"></span>
+    </div>
+    <button class="btn btn-secondary">Tambah</button>
+</form>
+@section scripts{
+    <partial name="_ValidationScriptsPartial" />
+}

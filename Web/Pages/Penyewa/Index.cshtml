@@ -1,0 +1,32 @@
+﻿@page
+@using Web.Pages.Penyewa;
+@model IndexModel
+@{
+    ViewData["Title"] = "Penyewa";
+}
+<h3>List Penyewa</h3>
+<a asp-page="/Penyewa/Create" class="btn btn-sm btn-success">+ Tambah</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>NIK</th>
+            <th>Nama Lengkap</th>
+            <th>Jenis Kelamin</th>
+            <th>Domisili</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>1</th>
+            <th>3210123456789</th>
+            <th>Budi Doremi</th>
+            <th>Laki Laki</th>
+            <th>Kemayoran, Jakarta Utara</th>
+            <th>
+                <a asp-page="/Penyewa/Edit" asp-route-id="1" class="btn btn-sm btn-secondary">Ubah</a>
+            </th>
+        </tr>
+    </tbody>
+</table>

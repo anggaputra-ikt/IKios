@@ -1,0 +1,41 @@
+﻿@page
+@using Domain.Entities;
+@using Web.Pages.Kios;
+@model CreateModel
+@{
+    ViewData["Title"] = "Tambah Kios";
+}
+<h3>@ViewData["Title"]</h3>
+<form method="post">
+    <div class="mb-3">
+        <label asp-for="@Model.Kios.Label" class="form-label"></label>
+        <input asp-for="@Model.Kios.Label" type="text" class="form-control" />
+        <span asp-validation-for="@Model.Kios.Label" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="@Model.Kios.Tipe" class="form-label"></label>
+        <select asp-for="@Model.Kios.Tipe" asp-items="@Html.GetEnumSelectList<TipeKios>()" class="form-select">
+            <option value="">- Pilih Tipe -</option>
+        </select>
+        <span asp-validation-for="@Model.Kios.Tipe" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="@Model.Kios.Luas" class="form-label"></label>
+        <input asp-for="@Model.Kios.Luas" type="number" class="form-control" min="0" />
+        <span asp-validation-for="@Model.Kios.Luas" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="@Model.Kios.Lantai" class="form-label"></label>
+        <input asp-for="@Model.Kios.Lantai" type="number" class="form-control" min="0" />
+        <span asp-validation-for="@Model.Kios.Lantai" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="@Model.Kios.Harga" class="form-label"></label>
+        <input asp-for="@Model.Kios.Harga" type="number" class="form-control" min="0" />
+        <span asp-validation-for="@Model.Kios.Harga" class="text-danger"></span>
+    </div>
+    <button class="btn btn-secondary">Tambah</button>
+</form>
+@section scripts{
+    <partial name="_ValidationScriptsPartial" />
+}
