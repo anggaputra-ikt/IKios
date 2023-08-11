@@ -1,3 +1,14 @@
+using Application.Penyewa;
+using Application.Penyewa.Dtos;
+using AutoMapper;
+using Domain.Entities;
+using Infrastructure.Contexts;
+using Infrastructure.Penyewa;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using System.Reflection;
+using Web.Pages.ViewModels;
+
 namespace Web
 {
     public class Program
@@ -7,6 +18,17 @@ namespace Web
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+            builder.Services.AddDbContext<ApplicationDbContext>(context => context.UseSqlServer(builder.Configuration.GetConnectionString("LocalDb")));
+            var mapperConfig = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<PenyewaViewModel, PenyewaDto>();
+                cfg.CreateMap<PenyewaDto, Penyewa>();
+            });
+            var mapper = mapperConfig.CreateMapper();
+            builder.Services.AddSingleton(mapper);
+            builder.Services.AddScoped<IPenyewaService, PenyewaService>();
+            builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
+
             builder.Services.AddRazorPages();
 
             var app = builder.Build();
@@ -23,6 +45,9 @@ namespace Web
             app.UseStaticFiles();
 
             app.UseRouting();
+            app.MapControllerRoute(
+                name: "default",
+                pattern: "{controller=Home}/{action=Index}/{id?}");
 
             app.UseAuthorization();
 

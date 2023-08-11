@@ -1,7 +1,11 @@
-﻿namespace Domain.Entities
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Domain.Entities
 {
     public class Kios
     {
+        [Key]
         public long Id { get; set; }
         public string? Label { get; set; }
         public TipeKios Tipe { get; set; }

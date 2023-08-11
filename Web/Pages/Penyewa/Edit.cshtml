@@ -1,8 +1,47 @@
 ﻿@page "{id?}"
+@using Domain.Entities;
 @using Web.Pages.Penyewa;
 @model EditModel
 @{
     ViewData["Title"] = "Ubah Penyewa";
 }
 <h3>@ViewData["Title"]</h3>
-ID: @Model.Id
+<form method="post">
+    <input type="text" class="form-control" asp-for="@Model.Penyewa.Id" hidden="hidden" />
+    <div class="mb-3">
+        <label class="form-label" asp-for="@Model.Penyewa.NIK"></label>
+        <input type="text" class="form-control" asp-for="@Model.Penyewa.NIK" />
+        <span class="text-danger" asp-validation-for="@Model.Penyewa.NIK"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label" asp-for="@Model.Penyewa.NamaLengkap"></label>
+        <input type="text" class="form-control" asp-for="@Model.Penyewa.NamaLengkap" />
+        <span class="text-danger" asp-validation-for="@Model.Penyewa.NamaLengkap"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label" asp-for="@Model.Penyewa.TempatLahir"></label>
+        <input type="text" class="form-control" asp-for="@Model.Penyewa.TempatLahir" />
+        <span class="text-danger" asp-validation-for="@Model.Penyewa.TempatLahir"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label" asp-for="@Model.Penyewa.JenisKelamin"></label>
+        <select class="form-select" asp-for="@Model.Penyewa.JenisKelamin" asp-items="@Html.GetEnumSelectList<JenisKelamin>()">
+            <option value="">- Pilih Jenis Kelamin -</option>
+        </select>
+        <span class="text-danger" asp-validation-for="@Model.Penyewa.JenisKelamin"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label" asp-for="@Model.Penyewa.Domisili"></label>
+        <input type="text" class="form-control" asp-for="@Model.Penyewa.Domisili" />
+        <span class="text-danger" asp-validation-for="@Model.Penyewa.Domisili"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label" asp-for="@Model.Penyewa.Kota"></label>
+        <input type="text" class="form-control" asp-for="@Model.Penyewa.Kota" />
+        <span class="text-danger" asp-validation-for="@Model.Penyewa.Kota"></span>
+    </div>
+    <button class="btn btn-success">Update</button>
+</form>
+@section scripts{
+    <partial name="_ValidationScriptsPartial" />
+}

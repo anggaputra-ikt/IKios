@@ -1,0 +1,41 @@
+﻿@using Domain.Entities;
+@model Web.Controllers.PenyewaController
+@{
+    ViewData["Title"] = "Tambah Penyewa";
+}
+<h3>@ViewData["Title"]</h3>
+@using (Html.BeginForm("CreatePost", "Penyewa", FormMethod.Post))
+{
+    <div class="mb-3">
+        @Html.LabelFor(model => model.Penyewa.NIK, new { @class = "form-label" })
+        @Html.TextBoxFor(model => model.Penyewa.NIK, new { @class="form-control" })
+        @Html.ValidationMessageFor(model => model.Penyewa.NIK, "", new { @class ="text-danger" })
+    </div>
+    <div class="mb-3">
+        @Html.LabelFor(model => model.Penyewa.NamaLengkap, new { @class = "form-label" })
+        @Html.TextBoxFor(model => model.Penyewa.NamaLengkap, new { @class="form-control" })
+        @Html.ValidationMessageFor(model => model.Penyewa.NamaLengkap, "", new { @class ="text-danger" })
+    </div>
+    <div class="mb-3">
+        @Html.LabelFor(model => model.Penyewa.TempatLahir, new { @class = "form-label" })
+        @Html.TextBoxFor(model => model.Penyewa.TempatLahir, new { @class="form-control" })
+        @Html.ValidationMessageFor(model => model.Penyewa.TempatLahir, "", new { @class ="text-danger" })
+    </div>
+    <div class="mb-3">
+        @Html.LabelFor(model => model.Penyewa.JenisKelamin, new { @class = "form-label" })
+        @Html.DropDownListFor(model => model.Penyewa.JenisKelamin, Html.GetEnumSelectList<JenisKelamin>(), new { @class = "form-select" })
+        <option value="">- Pilih Jenis Kelamin -</option>
+        @Html.ValidationMessageFor(model => model.Penyewa.JenisKelamin, "", new { @class ="text-danger" })
+    </div>
+    <div class="mb-3">
+        @Html.LabelFor(model => model.Penyewa.Domisili, new { @class = "form-label" })
+        @Html.TextBoxFor(model => model.Penyewa.Domisili, new { @class="form-control" })
+        @Html.ValidationMessageFor(model => model.Penyewa.Domisili, "", new { @class ="text-danger" })
+    </div>
+    <div class="mb-3">
+        @Html.LabelFor(model => model.Penyewa.Kota, new { @class = "form-label" })
+        @Html.TextBoxFor(model => model.Penyewa.Kota, new { @class="form-control" })
+        @Html.ValidationMessageFor(model => model.Penyewa.Kota, "", new { @class ="text-danger" })
+    </div>
+    <button class="btn btn-secondary">Tambah</button>
+}

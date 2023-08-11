@@ -1,11 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using Domain.Entities;
 
-namespace Domain.Entities
+namespace Application.Penyewa.Dtos
 {
-    public class Penyewa
+    public class PenyewaDto
     {
-        [Key]
         public long Id { get; set; }
         public string? NIK { get; set; }
         public string? NamaLengkap { get; set; }
@@ -13,12 +11,5 @@ namespace Domain.Entities
         public string? Domisili { get; set; }
         public string? Kota { get; set; }
         public string? TempatLahir { get; set; }
-    }
-
-    public enum JenisKelamin
-    {
-        [Display(Name = "Laki Laki")]
-        LakiLaki,
-        Perempuan
     }
 }

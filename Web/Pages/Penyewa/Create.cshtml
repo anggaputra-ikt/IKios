@@ -8,26 +8,36 @@
 <h3>@ViewData["Title"]</h3>
 <form method="post">
     <div class="mb-3">
-        <label asp-for="@Model.Penyewa.NIK" class="form-label"></label>
-        <input asp-for="@Model.Penyewa.NIK" type="text" class="form-control" />
-        <span asp-validation-for="@Model.Penyewa.NIK" class="text-danger"></span>
+        <label class="form-label" asp-for="@Model.Penyewa.NIK"></label>
+        <input type="text" class="form-control" asp-for="@Model.Penyewa.NIK" />
+        <span class="text-danger" asp-validation-for="@Model.Penyewa.NIK"></span>
     </div>
     <div class="mb-3">
-        <label asp-for="@Model.Penyewa.NamaLengkap" class="form-label"></label>
-        <input asp-for="@Model.Penyewa.NamaLengkap" type="text" class="form-control" />
-        <span asp-validation-for="@Model.Penyewa.NamaLengkap" class="text-danger"></span>
+        <label class="form-label" asp-for="@Model.Penyewa.NamaLengkap"></label>
+        <input type="text" class="form-control" asp-for="@Model.Penyewa.NamaLengkap" />
+        <span class="text-danger" asp-validation-for="@Model.Penyewa.NamaLengkap"></span>
     </div>
     <div class="mb-3">
-        <label asp-for="@Model.Penyewa.JenisKelamin" class="form-label"></label>
-        <select asp-for="@Model.Penyewa.JenisKelamin" asp-items="@Html.GetEnumSelectList<JenisKelamin>()" class="form-select">
+        <label class="form-label" asp-for="@Model.Penyewa.TempatLahir"></label>
+        <input type="text" class="form-control" asp-for="@Model.Penyewa.TempatLahir" />
+        <span class="text-danger" asp-validation-for="@Model.Penyewa.TempatLahir"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label" asp-for="@Model.Penyewa.JenisKelamin"></label>
+        <select class="form-select" asp-for="@Model.Penyewa.JenisKelamin" asp-items="@Html.GetEnumSelectList<JenisKelamin>()">
             <option value="">- Pilih Kelamin -</option>
         </select>
-        <span asp-validation-for="@Model.Penyewa.JenisKelamin" class="text-danger"></span>
+        <span class="text-danger" asp-validation-for="@Model.Penyewa.JenisKelamin"></span>
     </div>
     <div class="mb-3">
-        <label asp-for="@Model.Penyewa.Domisili" class="form-label"></label>
-        <input asp-for="@Model.Penyewa.Domisili" type="text" class="form-control" />
-        <span asp-validation-for="@Model.Penyewa.Domisili" class="text-danger"></span>
+        <label class="form-label" asp-for="@Model.Penyewa.Domisili"></label>
+        <input type="text" class="form-control" asp-for="@Model.Penyewa.Domisili" />
+        <span class="text-danger" asp-validation-for="@Model.Penyewa.Domisili"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="@Model.Penyewa.Kota" class="form-label"></label>
+        <input type="text" class="form-control" asp-for="@Model.Penyewa.Kota" />
+        <span class="text-danger" asp-validation-for="@Model.Penyewa.Kota"></span>
     </div>
     <button class="btn btn-secondary">Tambah</button>
 </form>

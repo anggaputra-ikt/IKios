@@ -6,27 +6,42 @@
 }
 <h3>List Penyewa</h3>
 <a asp-page="/Penyewa/Create" class="btn btn-sm btn-success">+ Tambah</a>
-<table class="table">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>NIK</th>
-            <th>Nama Lengkap</th>
-            <th>Jenis Kelamin</th>
-            <th>Domisili</th>
-            <th>Action</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <th>1</th>
-            <th>3210123456789</th>
-            <th>Budi Doremi</th>
-            <th>Laki Laki</th>
-            <th>Kemayoran, Jakarta Utara</th>
-            <th>
-                <a asp-page="/Penyewa/Edit" asp-route-id="1" class="btn btn-sm btn-secondary">Ubah</a>
-            </th>
-        </tr>
-    </tbody>
-</table>
+@if (Model.Penyewas != null)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>NIK</th>
+                <th>Nama Lengkap</th>
+                <th>Jenis Kelamin</th>
+                <th>Domisili</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Penyewas.Count == 0)
+            {
+                <tr>
+                    <td class="text-center" colspan="6"><span>Data not available.</span></td>
+                </tr>
+            }
+            else
+            {
+                @foreach (var penyewa in Model.Penyewas)
+                {
+                    <tr>
+                        <th>@penyewa.Id</th>
+                        <th>@penyewa.NIK</th>
+                        <th>@penyewa.NamaLengkap</th>
+                        <th>@penyewa.JenisKelamin</th>
+                        <th>@penyewa.Domisili</th>
+                        <th>
+                            <a asp-page="/Penyewa/Edit" asp-route-id="@penyewa.Id" class="btn btn-sm btn-secondary">Ubah</a>
+                        </th>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+}
