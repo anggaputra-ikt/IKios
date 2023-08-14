@@ -5,6 +5,7 @@ namespace Domain.Entities
 {
     public class Kios
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
         public long Id { get; set; }
         public string? Label { get; set; }

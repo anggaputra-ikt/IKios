@@ -6,7 +6,7 @@
     ViewData["Title"] = "Tambah Penyewa";
 }
 <h3>@ViewData["Title"]</h3>
-<form method="post">
+<form method="post" asp-controller="Penyewa" asp-action="CreatePost">
     <div class="mb-3">
         <label class="form-label" asp-for="@Model.Penyewa.NIK"></label>
         <input type="text" class="form-control" asp-for="@Model.Penyewa.NIK" />

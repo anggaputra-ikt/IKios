@@ -23,6 +23,7 @@ namespace Web.Pages.Penyewa
             {
                 var penyewaModel = new PenyewaViewModel()
                 {
+                    Id = penyewa.Id,
                     NIK = penyewa.NIK,
                     NamaLengkap = penyewa.NamaLengkap,
                     JenisKelamin = penyewa.JenisKelamin,

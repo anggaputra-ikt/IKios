@@ -5,6 +5,7 @@ namespace Domain.Entities
 {
     public class Penyewa
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
         public long Id { get; set; }
         public string? NIK { get; set; }

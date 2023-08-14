@@ -21,25 +21,5 @@ namespace Web.Pages.Penyewa
         public void OnGet()
         {
         }
-
-        public IActionResult OnPost()
-        {
-            if (ModelState.IsValid)
-            {
-                var penyewa = new Domain.Entities.Penyewa()
-                {
-                    NIK = Penyewa.NIK,
-                    NamaLengkap = Penyewa.NamaLengkap,
-                    JenisKelamin = Penyewa.JenisKelamin,
-                    Domisili = Penyewa.Domisili,
-                    Kota = Penyewa.Kota,
-                    TempatLahir = Penyewa.TempatLahir
-                };
-                context.Add(penyewa);
-                context.SaveChanges();
-                return RedirectToPage("/Penyewa/Index");
-            }
-            return Page();
-        }
     }
 }
